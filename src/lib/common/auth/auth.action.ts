@@ -7,7 +7,7 @@ import { getCookie } from 'src/main/cookie';
 import { AUTH_COOKIE } from 'src/main/auth/auth.constant';
 import { AUTH_ACTION_TYPE } from '.';
 
-export function authSetData(token: string | null = null) {
+export function authSetData(token: any | null = null) {
   const user = token ? parseUserAuthData(authDecode(token)) : null;
 
   setAutorization(token);
