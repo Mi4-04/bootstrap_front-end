@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { FieldLayout } from '../../../../lib/elements/layout';
 import { Button } from '../../../../lib/elements/button';
 
-export function SignupFormComponent(props) {
+export function LoginFormComponent(props) {
   const {
     fieldLogin,
     fieldPassword,
@@ -38,8 +38,8 @@ export function SignupFormComponent(props) {
           {pageLoading && 'pageLoading'}
           <FieldLayout>
             <FieldPrimary
-              titleTid="SIGNUP.SIGNUP_FORM.FIELD.LOGIN.TITLE"
-              placeholderTid="SIGNUP.SIGNUP_FORM.FIELD.LOGIN.PLACEHOLDER"
+              titleTid="LOGIN.LOGIN_FORM.FIELD.LOGIN.TITLE"
+              placeholderTid="LOGIN.LOGIN_FORM.FIELD.LOGIN.PLACEHOLDER"
               name={fieldLogin}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -48,8 +48,8 @@ export function SignupFormComponent(props) {
             />
 
             <FieldPrimary
-              titleTid="SIGNUP.SIGNUP_FORM.FIELD.PASSWORD.TITLE"
-              placeholderTid="SIGNUP.SIGNUP_FORM.FIELD.PASSWORD.PLACEHOLDER"
+              titleTid="LOGIN.LOGIN_FORM.FIELD.PASSWORD.TITLE"
+              placeholderTid="LOGIN.LOGIN_FORM.FIELD.PASSWORD.PLACEHOLDER"
               name={fieldPassword}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -58,7 +58,7 @@ export function SignupFormComponent(props) {
             />
           </FieldLayout>
           <Button type="submit" disabled={isSubmitDisabled}>
-            Создать аккаунт
+            Войти
           </Button>
           {isPending && 'Loading...'}
           {isError && errorMessage}

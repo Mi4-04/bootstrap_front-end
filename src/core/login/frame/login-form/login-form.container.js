@@ -1,9 +1,9 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { SignupFormComponent } from './signup-form.component';
-import { SIGNUP_FORM_FIELD_KEY } from './signup-form.type';
+import { LoginFormComponent } from './login-form.component';
+import { LOGIN_FORM_FIELD_KEY } from './login-form.type';
 
-export function SignupFormContainer(props) {
+export function LoginFormContainer(props) {
   const {
     initialValue,
     validation,
@@ -16,8 +16,8 @@ export function SignupFormContainer(props) {
     pageLoading,
   } = props;
 
-  const LOGIN_NAME = fieldName[SIGNUP_FORM_FIELD_KEY.LOGIN];
-  const PASSWORD_NAME = fieldName[SIGNUP_FORM_FIELD_KEY.PASSWORD];
+  const LOGIN_NAME = fieldName[LOGIN_FORM_FIELD_KEY.LOGIN];
+  const PASSWORD_NAME = fieldName[LOGIN_FORM_FIELD_KEY.PASSWORD];
   return (
     <div>
       <Formik
@@ -26,7 +26,7 @@ export function SignupFormContainer(props) {
         onSubmit={onSubmitForm}
       >
         {(formProps) => (
-          <SignupFormComponent
+          <LoginFormComponent
             fieldPassword={PASSWORD_NAME}
             fieldLogin={LOGIN_NAME}
             {...formProps}
