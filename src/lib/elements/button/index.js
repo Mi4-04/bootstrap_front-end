@@ -1,1 +1,1 @@
-export { Button } from './button.field';
+export { ButtonField } from './button.field';

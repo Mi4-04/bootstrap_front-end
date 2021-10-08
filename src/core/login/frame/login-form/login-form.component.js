@@ -2,7 +2,9 @@ import React from 'react';
 import { FieldPrimary } from '../../../../lib/elements/field';
 import styled from 'styled-components';
 import { FieldLayout } from '../../../../lib/elements/layout';
-import { Button } from '../../../../lib/elements/button';
+import { ButtonField } from '../../../../lib/elements/button';
+import { LoaderComponent } from '../../../../lib/elements/loader';
+import { ErrorMessageComponent } from '../../../../lib/elements/errorMessage';
 
 export function LoginFormComponent(props) {
   const {
@@ -35,7 +37,9 @@ export function LoginFormComponent(props) {
     <div>
       <form onSubmit={handleSubmit}>
         <Container>
-          {pageLoading && 'pageLoading'}
+          {pageLoading && (
+            <LoaderComponent titleTid="SIGNUP.SIGNUP_FORM.LOADER.PAGE_LOADING_TITLE" />
+          )}
           <FieldLayout>
             <FieldPrimary
               titleTid="LOGIN.LOGIN_FORM.FIELD.LOGIN.TITLE"
@@ -57,11 +61,15 @@ export function LoginFormComponent(props) {
               error={isFieldError(fieldPassword)}
             />
           </FieldLayout>
-          <Button type="submit" disabled={isSubmitDisabled}>
-            Войти
-          </Button>
-          {isPending && 'Loading...'}
-          {isError && errorMessage}
+          <ButtonField
+            titleTid="TITLE.BUTTON.LOGIN.TITLE"
+            type="submit"
+            disabled={isSubmitDisabled}
+          />
+          {isPending && (
+            <LoaderComponent titleTid="SIGNUP.SIGNUP_FORM.LOADER.LOADER_TITLE" />
+          )}
+          {isError && <ErrorMessageComponent errorMessage={errorMessage} />}
         </Container>
       </form>
     </div>
