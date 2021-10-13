@@ -1,43 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { HomeTitleComponent } from './frame/home-title';
-import axios from 'axios';
-import { FieldSecondary } from '../../lib/elements/field/';
+//import { HomeListItemConatainer } from './frame/home-list-item';
+import { homeUploadData } from './home.action';
+import { useDispatch, useSelector } from 'react-redux';
+import { HOME_STORE_NAME } from './home.constant';
+import { performUserDataList } from './home.convert';
+import { HomeListItemContainer } from './frame/home-list-item';
 
-/*export async function getStaticProps(props) {
-  const res = await fetch('http://localhost:4000/auth/home');
-  const users = await res.json();
-
-  console.log(res);
-  console.log(users);
-  return {
-    props: { users },
-  };
-}*/
 export function HomeComponent(props) {
-  const [users, setUsers] = useState([]);
+  /*const dispatch = useDispatch();
 
-  useEffect(() => {
-    fetch('http://localhost:4000/auth/home')
-      .then((res) => res.json())
-      .then((res) => setUsers(res));
-  }, []);
+  const users = useSelector((state) => state.HOME.users);
+
+  useEffect((data) => {
+    // const data = performUserDataList(value);
+    dispatch(homeUploadData(data));
+  }, []);*/
 
   return (
     <div>
       <HomeTitleComponent />
-      {users.map((user) => (
-        <div key={user.id}>
-          <div>
-            <FieldSecondary
-              titleTid="USER.USER_FIELD.ID.TITLE"
-              userId={user.id}
-            />
-          </div>
-          <h3>{user.login}</h3>
 
-          <hr />
+      <HomeListItemContainer {...props} />
+      {/*Object.keys(users).map((user) => (
+        <div>
+          <HomeListItemComponent user={users[user]} />
         </div>
-      ))}
+      ))*/}
     </div>
   );
 }

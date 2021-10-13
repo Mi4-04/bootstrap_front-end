@@ -6,3 +6,5 @@ export const HOME_API_URL = {
     METHOD: 'GET',
   },
 };
+
+export const HOME_STORE_NAME = 'HOME';
