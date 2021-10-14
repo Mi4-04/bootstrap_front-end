@@ -1,26 +1,22 @@
 import React from 'react';
 import { HomeListItemComponent } from './home-list-item.component';
-import { USER_LIST_ITEM_KEY } from './home-list-item.type';
 
 export function HomeListItemContainer(props) {
-  const {
-    initialValue,
-    getData,
-    pageLoading,
-    isPending,
-    isError,
-    isSuccess,
-    errorMessage,
-    users,
-  } = props;
-  // тут вопросик
-  const USER_LIST = users[USER_LIST_ITEM_KEY.USERS];
+  const { pageLoading, isPending, isError, isSuccess, errorMessage, users } =
+    props;
 
   return (
     <div>
-      {Object.keys(users).map((user) => (
-        <div>
-          <HomeListItemComponent user={users[user]} />
+      {users.map((user, i) => (
+        <div key={i}>
+          <HomeListItemComponent
+            pageLoading={pageLoading}
+            isPending={isPending}
+            isSuccess={isSuccess}
+            errorMessage={errorMessage}
+            isError={isError}
+            user={user}
+          />
         </div>
       ))}
     </div>

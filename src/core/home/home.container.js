@@ -17,18 +17,13 @@ export function HomeContainer() {
   const dispatch = useDispatch();
   const { state, pageLoading } = useSelector((state) => ({
     state: state[HOME_STORE_NAME],
-    pageLoading: state[NAVIGATION_STORE_NAME],
+    pageLoading: state[NAVIGATION_STORE_NAME].pageLoading,
   }));
 
-  useEffect((data) => {
-    dispatch(homeUploadData(data));
+  useEffect(() => {
+    console.log();
+    dispatch(homeUploadData());
   }, []);
-
-  const homeGetInitialValue = () => {
-    return {
-      [USER_LIST_NAME.USERS]: [],
-    };
-  };
 
   return (
     <HomeComponent
@@ -36,10 +31,8 @@ export function HomeContainer() {
       isError={isRequestError(state.users)}
       isSuccess={isRequestSuccess(state.users)}
       errorMessage={getRequestErrorMessage(state.users)}
-      initialValue={homeGetInitialValue()}
-      getData={getRequestData(state.users)}
+      users={getRequestData(state.users, [])}
       pageLoading={pageLoading}
-      users={USER_ITEM_LIST_NAME}
     />
   );
 }

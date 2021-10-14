@@ -21,7 +21,7 @@ export function homeStore(state = initialState, action) {
     case HOME_ACTION_TYPE.HOME_UPLOAD_SUCCESS:
       return {
         ...state,
-        users: setRequestSuccess(state.users),
+        users: setRequestSuccess(state.users, action.payload),
         // users: action.payload,
       };
 

@@ -1,5 +1,3 @@
-import { USER_LIST_ITEM_KEY } from './frame/home-list-item';
-
 export const HOME_ACTION_TYPE = {
   HOME_UPLOAD_PENDING: 'HOME_ACTION_TYPE.HOME_UPLOAD_PENDING',
   HOME_UPLOAD_SUCCESS: 'HOME_ACTION_TYPE.HOME_UPLOAD_SUCCESS',
@@ -7,13 +5,7 @@ export const HOME_ACTION_TYPE = {
 };
 
 export const USER_DATA_NAME = {
-  USERS: 'users',
-};
-
-export const USER_LIST_NAME = {
-  USERS: 'users',
-};
-
-export const USER_ITEM_LIST_NAME = {
-  [USER_LIST_ITEM_KEY.USERS]: USER_LIST_NAME.USERS,
+  //USERS: 'users',
+  ID: 'id',
+  LOGIN: 'login',
 };

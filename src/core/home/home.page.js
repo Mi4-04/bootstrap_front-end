@@ -1,5 +1,6 @@
 import React from 'react';
-import { HomeComponent } from './home.component';
+//import { HomeComponent } from './home.component';
+import { HomeContainer } from './home.container';
 import {
   AuthLayout,
   PageLayout,
@@ -13,7 +14,7 @@ export function HomePage() {
       <PageLayout>
         <AuthLayout>
           <SectionLayout>
-            <HomeComponent />
+            <HomeContainer />
           </SectionLayout>
         </AuthLayout>
       </PageLayout>
