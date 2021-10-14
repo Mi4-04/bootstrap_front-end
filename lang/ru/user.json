@@ -1,0 +1,7 @@
+{
+    "USER_FIELD": {
+        "ID": {
+            "TITLE": "ID: {{userId}}"
+        }
+    }
+}

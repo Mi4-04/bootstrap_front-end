@@ -2,7 +2,10 @@ import React from 'react';
 import { FieldPrimary } from '../../../../lib/elements/field';
 import styled from 'styled-components';
 import { FieldLayout } from '../../../../lib/elements/layout';
-import { Button } from '../../../../lib/elements/button';
+import { ButtonField } from '../../../../lib/elements/button';
+import { LoaderComponent } from '../../../../lib/elements/loader';
+import { ErrorMessageComponent } from '../../../../lib/elements/errorMessage';
+import { spacing } from '../../../../lib/theme';
 
 export function SignupFormComponent(props) {
   const {
@@ -15,7 +18,11 @@ export function SignupFormComponent(props) {
     handleChange,
     handleBlur,
     handleSubmit,
-    isSubmitting,
+    isPending,
+    isSuccess,
+    isError,
+    errorMessage,
+    pageLoading,
   } = props;
 
   const isFieldError = (name) => {
@@ -23,10 +30,17 @@ export function SignupFormComponent(props) {
     return errorMessage;
   };
 
+  const isSubmitDisabled = () => {
+    return isPending || isSuccess;
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <Container>
+          {pageLoading && (
+            <LoaderComponent titleTid="SIGNUP.SIGNUP_FORM.LOADER.PAGE_LOADING_TITLE" />
+          )}
           <FieldLayout>
             <FieldPrimary
               titleTid="SIGNUP.SIGNUP_FORM.FIELD.LOGIN.TITLE"
@@ -48,9 +62,15 @@ export function SignupFormComponent(props) {
               error={isFieldError(fieldPassword)}
             />
           </FieldLayout>
-          <Button type="submit" disabled={isSubmitting}>
-            Submit
-          </Button>
+          <ButtonField
+            titleTid="TITLE.BUTTON.SIGNUP.TITLE"
+            type="submit"
+            disabled={isSubmitDisabled}
+          />
+          {isPending && (
+            <LoaderComponent titleTid="SIGNUP.SIGNUP_FORM.LOADER.LOADER_TITLE" />
+          )}
+          {isError && <ErrorMessageComponent errorMessage={errorMessage} />}
         </Container>
       </form>
     </div>
@@ -59,5 +79,5 @@ export function SignupFormComponent(props) {
 
 const Container = styled.div`
   display: grid;
-  gap: 12px;
+  gap: ${spacing(3)};
 `;

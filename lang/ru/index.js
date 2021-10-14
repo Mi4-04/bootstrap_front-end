@@ -3,6 +3,9 @@ import VALIDATION from './validation.json';
 import ERROR from './error.json';
 import STATIC from './static.json';
 import SIGNUP from './signup.json';
+import LOGIN from './login.json';
+import TITLE from './title.json';
+import USER from './user.json';
 
 export const RU = {
   translation: {
@@ -11,5 +14,8 @@ export const RU = {
     ERROR,
     STATIC,
     SIGNUP,
+    LOGIN,
+    TITLE,
+    USER,
   },
 };

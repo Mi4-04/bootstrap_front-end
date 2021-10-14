@@ -7,7 +7,6 @@ export function TextSecondary(props) {
 }
 
 const Text = styled.span`
-    font-size: ${THEME_SIZE.FONT.SMALL},
-    color: ${THEME_COLOR.TEXT_SECONDARY}
-
+  font-size: ${THEME_SIZE.FONT.SMALL};
+  color: ${THEME_COLOR.TEXT_SECONDARY};
 `;

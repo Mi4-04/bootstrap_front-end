@@ -9,6 +9,18 @@
                 "TITLE": "Password",
                 "PLACEHOLDER": "Your password"
             }
+        },
+        "FOOTER": {
+            "TITLE": "Есть аккаунт? ",
+            "LINK" : "Войти"
+        },
+        "LOADER": {
+            "LOADER_TITLE": "Loading...",
+            "PAGE_LOADING_TITLE": "pageLoading"
+        },
+        "ERROR_MESSAGE": {
+            "ERROR": "{{errorMessage}}"
         }
+    
     }
 }
